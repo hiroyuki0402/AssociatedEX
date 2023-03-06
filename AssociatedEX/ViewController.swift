@@ -10,10 +10,10 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-    var coustom: CustomArray!
+    var coustom: CustomArray<Any>!
     override func viewDidLoad() {
         super.viewDidLoad()
-        coustom = CustomArray()
+        coustom = CustomArray<Any>()
         for index in 0...10 {
             coustom.append(item: "item_index: \(index)")
         }
@@ -26,7 +26,7 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = coustom.colllection[indexPath.row]
+        let item = coustom.colllection[indexPath.row] as? String
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = item
         return cell

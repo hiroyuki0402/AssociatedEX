@@ -14,10 +14,10 @@ protocol Appendble: AnyObject {
     func append(item: Item)
 }
 
-class CustomArray: Appendble {
-    typealias Item = String
-    var colllection: [String] = []
-    func append(item: String) {
+class CustomArray<T>: Appendble {
+    typealias Item = T
+    var colllection: [T] = []
+    func append(item: T) {
         self.colllection.append(item)
     }
 }
